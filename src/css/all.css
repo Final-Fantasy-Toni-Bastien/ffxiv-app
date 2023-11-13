@@ -1,0 +1,78 @@
+/* Style de la barre verticale */
+.barre-verticale {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 2px;
+    /* Largeur de la barre */
+    background-color: #000;
+    /* Couleur de la barre */
+}
+
+/* Style supplémentaire (optionnel) */
+div {
+    display: flex;
+    margin-left: 10px;
+    /* Ajuster la marge pour laisser de l'espace à côté de la barre */
+}
+div > button {
+    margin-left: 50px;
+    background-color: aqua;
+    width: 80%;
+    height: 120%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+/* Style des cartes */
+.carte {
+    width: 100%;
+    max-width: 800px;
+    /* Ajustez selon vos besoins */
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style du contenu de la carte */
+.carte-contenu {
+    padding: 20px;
+}
+
+/* Style du titre de la carte */
+.carte-titre {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style du texte de la carte */
+.carte-texte {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Style de l'image de la carte */
+.carte-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    /* Ajustez selon vos besoins */
+    object-fit: cover;
+}
+
+ /* Ajout du style pour le lien */
+ .lien-carte {
+    text-decoration: none; /* Enlève le soulignement par défaut du lien */
+    color: inherit; /* Hérite de la couleur du texte parent */
+    cursor: pointer; /* Change le curseur au survol pour indiquer que c'est un lien */
+  }

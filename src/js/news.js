@@ -4,38 +4,45 @@ function submit() {
 
 }
 
+function refresh() {
+    const response = fetch("/refresh");
+    news();
+}
+async function news(){
+    try {
+        const response = await fetch("/feed");
+
+        if (response.ok) {
+            const text = await response.text();
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(text, "text/xml");
+
+            // Vous pouvez maintenant accéder aux éléments du flux RSS comme suit
+            const items = xmlDoc.querySelectorAll("item");
+
+            items.forEach(item => {
+                const title = item.querySelector("title").textContent;
+                const link = item.querySelector("link").textContent;
+                const description = item.querySelector("description").textContent;
+                document.getElementById("c").innerHTML += (`  
+                <a href="${link}" class="lien-carte">
+                <div class="carte">
+                <div class="carte-contenu">
+                <h2 class="carte-titre">${title}<br>
+                <p class="card-texte">${description}<p>
+                <br>--------<br>   </div></div></a>`);
+            });
+        } else {
+            console.error("Erreur lors de la requête.", response);
+        }
+    } catch (error) {
+        console.error("Une erreur s'est produite :", error);
+    }
+}
 
 window.onload = function () {
 
-    (async () => {
-        try {
-            const response = await fetch("/feed");
-
-            if (response.ok) {
-                const text = await response.text();
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(text, "text/xml");
-
-                // Vous pouvez maintenant accéder aux éléments du flux RSS comme suit
-                const items = xmlDoc.querySelectorAll("item");
-
-                items.forEach(item => {
-                    const title = item.querySelector("title").textContent;
-                    const link = item.querySelector("link").textContent;
-                    const description = item.querySelector("description").textContent;
-
-                    document.write("Titre : " + title + "<br>");
-                    document.write("Lien : " + link+ "<br>");
-                    document.write("Description : " + description + "<br>");
-                    document.write("<br>--------<br>");
-                });
-            } else {
-                console.error("Erreur lors de la requête.",response);
-            }
-        } catch (error) {
-            console.error("Une erreur s'est produite :", error);
-        }
-    })();
+    news()
 
 
 

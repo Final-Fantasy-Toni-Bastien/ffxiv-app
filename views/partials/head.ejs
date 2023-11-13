@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- <script type="text/javascript" src="../../src/js/all.js"></script>-->
-    <link rel="stylesheet" href="../src/css/all.css" /> 
+  <link rel="stylesheet" href="../src/css/all.css" />
   <% if(locals.script){ %>
     <script type="text/javascript" src="../src/js/<%= script %>.js"></script>
     <% } if(locals.css){ %>
@@ -18,14 +18,13 @@
         </title>
 
         <navbar>
-          <a href="/">Accueil</a>
+          <!-- Barre verticale -->
+          <div class="barre-verticale"></div>
 
-          <% if(locals.username){ %>
-            <a href="/logout">Se déconnecter</a>
-            <% } else { %>
-              <a href="/login">Connexion</a>
-              <a href="/register">S'inscrire</a>
-              <% } %>
+          <!-- Contenu principal -->
+          <div class="contenu-principal">
+            <!-- Votre contenu va ici -->
+          </div>
         </navbar>
         <br><br>
 </head>

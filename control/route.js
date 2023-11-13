@@ -46,6 +46,10 @@ control.get("/feed", function (req, res) {
     res.send(feeding)
 })
 
+control.get("/news", function (req, res) {
+    res.render("new")
+})
+
 
 
 
