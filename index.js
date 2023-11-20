@@ -1,7 +1,7 @@
 //Tout les npm utilisé pour le projet.
 const express = require('express'),
     path = require('path'),
-    cookieParser = require('cookie-parser'),
+    // cookieParser = require('cookie-parser'),
     config = require("./config/config.json"),
     port = (process.env.PORT || process.env.ALWAYSDATA_HTTPD_PORT || config.port || 5600),
     ip = (process.env.IP || process.env.ALWAYSDATA_HTTPD_IP),
@@ -23,7 +23,7 @@ server = app.listen(port, ip, err => {
 
 });
 
-app.use(cookieParser(config.cookiesecret)); //Pour pouvoir utiliser les cookie.
+// app.use(cookieParser(config.cookiesecret)); //Pour pouvoir utiliser les cookie.
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true }));
 app.disable('x-powered-by'); //Désactive le header x-powered-by
